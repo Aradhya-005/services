@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+      /* Assignment Section with Two Trapezoids */
+      #assignment {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Left trapezoid (blue) */
+      .left-trapezoid {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2a1e6a; /* Blue (purple-900 in Tailwind) */
+        clip-path: polygon(0 0, 95% 0, 8% 100%, 0% 100%);
+      }
+
+      /* Right trapezoid (orange) */
+      .right-trapezoid {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #efedf8; /* Tomato color */
+        clip-path: polygon(95% 0, 100% 0, 100% 100%, 8% 100%);
+      }
+
+      /* Container for the content in the middle */
+      .container {
+        position: relative;
+        text-align: center;
+        z-index: 10;
+      }
+
+      /* Custom animation on hover for rotating icons */
+      .rotate-icon:hover {
+        animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <!-- Assignment Section with Two Trapezoids -->
+    <div id="assignment">
+      <div class="left-trapezoid"></div>
+      <div class="right-trapezoid"></div>
+
+      <!-- Content in the middle -->
+      <div class="container">
+        <h2 class="text-white text-3xl mt-3 px-28 text-left font-semibold mb-8 tracking-wider">
+          OUR SERVICES
+        </h2>
+
+        <div class="mx-auto pt-14 px-28 z-12 flex flex-row  gap-7">
+          <!-- Card 1 -->
+          <div class="bg-white shadow-lg p-6 text-center rounded-lg">
+            <div class="rotate-icon  bg-white border-2 border-[#3b3f90] mt-[-55px] mx-auto mb-4 p-4 w-20 h-20 flex items-center justify-center  rounded-full">
+              <img src="./assets/phone.svg" alt="Emergency Plumbing" class="mx-auto" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Emergency Plumbing Services</h3>
+            <p class="text-gray-600 mb-4">
+              Our plumbers are ready to go 24/7 for emergencies – including nights, weekends, and holidays.
+            </p>
+            <div class="flex flex-row justify-center">
+              <a href="#" class="text-[#3b3f90] font-bold ">EXPLORE THIS SERVICE</a>
+              <img src="./assets/arrow.svg" alt="arrow" />
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white shadow-lg p-6 text-center rounded-lg">
+            <div class="rotate-icon mt-[-55px] mx-auto mb-4 bg-white p-4 border-2 border-[#3b3f90] w-20 h-20 flex items-center justify-center rounded-full">
+              <img src="./assets/pipe.svg" alt="Plumbing and Drains" class="mx-auto" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Plumbing and Drains</h3>
+            <p class="text-gray-600 mb-4">
+              As the largest plumbing and drain service company, we make thousands of repairs every day.
+            </p>
+            <div class="flex flex-row justify-center">
+              <a href="#" class="text-[#3b3f90] font-bold">EXPLORE THIS SERVICE</a>
+              <img src="./assets/arrow.svg" alt="arrow" />
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white shadow-lg p-6 text-center rounded-lg">
+            <div class="rotate-icon mt-[-55px] mx-auto mb-4 bg-white p-4 border-2 border-[#3b3f90] w-20 h-20 flex items-center justify-center rounded-full">
+              <img src="./assets/drop.svg" alt="Water Damage" class="mx-auto" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Water Damage</h3>
+            <p class="text-gray-600 mb-4">
+              Our teams are equipped with state-of-the-art water extraction and cleanup equipment.
+            </p>
+            <div class="flex flex-row justify-center">
+              <a href="#" class="text-[#3b3f90] font-bold">EXPLORE THIS SERVICE</a>
+              <img src="./assets/arrow.svg" alt="arrow" />
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white shadow-lg p-6 text-center rounded-lg">
+            <div class="rotate-icon mt-[-55px] mx-auto mb-4 bg-white p-4 border-2 border-[#3b3f90] w-20 h-20 flex items-center justify-center rounded-full">
+              <img src="./assets//gas-heater.png" alt="Water Heaters" class="mx-auto" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Water Heaters</h3>
+            <p class="text-gray-600 mb-4">
+              Trust Roto-Rooter for repair and replacement of gas, electric, and tankless water heaters.
+            </p>
+            <div class="flex flex-row justify-center">
+              <a href="#" class="text-[#3b3f90] font-bold">EXPLORE THIS SERVICE</a>
+              <img src="./assets/arrow.svg" alt="arrow" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animation Script -->
+    <script>
+      anime({
+        targets: ".rotate-icon img",
+        rotate: "1turn",
+        duration: 800,
+        loop: true,
+        easing: "linear",
+        autoplay: false,
+      });
+
+      document.querySelectorAll(".rotate-icon").forEach(function (icon) {
+        icon.addEventListener("mouseenter", function () {
+          anime({
+            targets: icon.querySelector("img"),
+            rotate: "1turn",
+            duration: 800,
+            easing: "linear",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
